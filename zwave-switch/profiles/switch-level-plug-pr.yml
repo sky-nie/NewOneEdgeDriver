@@ -1,0 +1,103 @@
+name: switch-level-plug-pr
+components:
+- id: main
+  capabilities:
+  - id: switch
+    version: 1
+  - id: switchLevel
+    version: 1
+    config:
+      values:
+        - key: "level.value"
+          range: [1, 100]
+  - id: refresh
+    version: 1
+  categories:
+  - name: SmartPlug
+preferences:
+  - title: "LED Indicator Mode"
+    name: "configParam2"
+    description: ""
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Off When On"
+        1 : "On When On"
+        2 : "Always Off"
+        3 : "Always On"
+      default: 0
+  - title: "Auto Turn-Off Timer"
+    name: "configParam4"
+    description: "0, Disabled; 1 - 65535 minutes"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 65535
+      default: 0
+  - title: "Auto Turn-On Timer"
+    name: "configParam6"
+    description: "0, Disabled; 1 - 65535 minutes"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 65535
+      default: 0
+  - title: "Night Light Settings"
+    name: "configParam7"
+    description: "1 - 10:10% - 100%"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 10
+      default: 2
+  - title: "Power Failure Recovery"
+    name: "configParam8"
+    description: ""
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Turn Off"
+        1 : "Turn On"
+        2 : "Restore Last State"
+      default: 2
+  - title: "Push Dimming Duration"
+    name: "configParam9"
+    description: "0, Disabled; 1 - 10 Seconds"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 10
+      default: 1
+  - title: "Hold Dimming Duration"
+    name: "configParam10"
+    description: "1 - 10 Seconds"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 10
+      default: 4
+  - title: "Minimum Brightness"
+    name: "configParam11"
+    description: "0, Disabled; 1 - 99:1% - 99%"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 99
+      default: 10
+  - title: "Maximum Brightness"
+    name: "configParam12"
+    description: "0, Disabled; 1 - 99:1% - 99%"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 99
+      default: 99

@@ -1,0 +1,143 @@
+name: newone-metering-switch
+components:
+- id: main
+  capabilities:
+  - id: switch
+    version: 1
+  - id: powerMeter
+    version: 1
+  - id: energyMeter
+    version: 1
+  - id: voltageMeasurement
+    version: 1
+  - id: refresh
+    version: 1
+  categories:
+  - name: Switch
+preferences:
+  - title: "LED Indicator Mode"
+    name: "configParam1"
+    description: ""
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "On When On"
+        1 : "Off When On"
+        2 : "Always Off"
+        3 : "Always On"
+      default: 0
+  - title: "Auto Turn-Off Timer"
+    name: "configParam2"
+    description: "0, Disabled; 1 - 65535 minutes"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 65535
+      default: 0
+  - title: "Auto Turn-On Timer"
+    name: "configParam3"
+    description: "0, Disabled; 1 - 65535 minutes"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 65535
+      default: 0
+  - title: "Restores state after power failure"
+    name: "configParam4"
+    description: ""
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Restore Last State"
+        1 : "Turn Off"
+        2 : "Turn On"
+      default: 2
+  - title: "Power Wattage(W) Report Value Change"
+    name: "configParam5"
+    description: "1 [DEFAULT]; 0 - 5:0W - 5w"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 5
+      default:
+  - title: "Time Report Interval"
+    name: "configParam6"
+    description: "1[DEFAULT] - 65535:1 - 65535 minutes"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 65535
+      default: 1
+  - title: "Current(A) Report Value Change"
+    name: "configParam7"
+    description: "1[DEFAULT] - 10:0.1A - 1A"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 10
+      default: 1
+  - title: "Energy(KWH) Report Value Change"
+    name: "configParam8"
+    description: "1[DEFAULT] - 100:0.01KWH - 1KWH"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 100
+      default: 1
+  - title: "Indicator brightness"
+    name: "configParam9"
+    description: "Setting indicator's brightness."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "High level"
+        1 : "Mid level"
+        2 : "Low leve"
+      default: 0
+  - title: "Disable power report"
+    name: "configParam10"
+    description: "Enable or disable power report."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Enable power report"
+        1 : "Disable power report"
+      default: 0
+  - title: "Disable currents report"
+    name: "configParam11"
+    description: "Enable or disable currents report."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Enable currents report"
+        1 : "Disable currents report"
+      default: 0
+  - title: "Report frequency of currents"
+    name: "configParam12"
+    description: "Interval minutes after last report of currents"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 65535
+      default: 60
+  - title: "Report frequency of voltage"
+    name: "configParam13"
+    description: "Interval minutes after last report of voltage"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 65535
+      default: 60
