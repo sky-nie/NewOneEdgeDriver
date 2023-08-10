@@ -1,0 +1,164 @@
+name: minoston-door-window-sensor-temperature
+components:
+- id: main
+  capabilities:
+  - id: contactSensor
+    version: 1
+  - id: battery
+    version: 1
+  - id: relativeHumidityMeasurement
+    version: 1
+  - id: temperatureMeasurement
+    version: 1
+  - id: refresh
+    version: 1
+  categories:
+  - name: ContactSensor
+metadata:
+  deviceType: ContactSensor
+  ocfDeviceType: x.com.st.d.sensor.contact
+  deviceTypeId: ContactSensor
+preferences:
+  - name: "batteryReportThreshold"
+    title: "Battery report threshold"
+    description: "1 - 20:1% - 20%"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 20
+      default: 10
+  - name: "lowBatteryAlarmReport"
+    title: "Low battery alarm report"
+    description: "5 - 20:5% - 20%"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 5
+      maximum: 20
+      default: 5
+  - name: "sensorModeWhenClosed"
+    title: "Sensor mode when closed"
+    description: "State of the sensor when the magnet closes the reed."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Door/window closed"
+        1 : "Door/window opened"
+      default: 0
+  - name: "delaySecondsWhenClosed"
+    title: "Delay report seconds when closed"
+    description: "Delay in seconds with ON command report(door closed)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 3600
+      default: 0
+  - name: "delaySecondsWhenOpened"
+    title: "Delay report seconds when opened"
+    description: "Delay in seconds with OFF command report(door open)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 3600
+      default: 0
+  - name: "minTemperatureOffset"
+    title: "Min temperature offset"
+    description: "Minimum Temperature change to report(0.5℃/0.9°F - 5.0℃/9°F)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 5
+      maximum: 50
+      default: 10
+  - name: "minHumidityOffset"
+    title: "Min humidity offset"
+    description: "Minimum Humidity change to report(5% - 20%)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 5
+      maximum: 20
+      default: 10
+  - name: "temperUpperWatermark"
+    title: "Temperature upper watermark"
+    description: "Temperature Upper Watermark value(0,Disabled; 1℃/33.8°F-50℃/122.0°F)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 50
+      default: 0
+  - name: "temperLowerWatermark"
+    title: "Temperature lower watermark"
+    description: "Temperature Lower Watermark value(0,Disabled; 1℃/33.8°F - 50℃/122.0°F)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 50
+      default: 0
+  - name: "humiUpperWatermark"
+    title: "Humidity upper watermark"
+    description: "Humidity Upper Watermark value(0,Disabled; 1% - 100%)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 0
+  - name: "humiLowerWatermark"
+    title: "Humidity lower watermark"
+    description: "Humidity Lower Watermark value(0,Disabled; 1%-100%)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 0
+  - name: "switchTemperatureUnit"
+    title: "Switch temperature unit"
+    description: "Switch the unit of Temperature report."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Celsius"
+        1 : "Fahrenheit"
+      default: 1
+  - name: "temperatureOffset"
+    title: "Temperature offset"
+    description: "Offset value for temperature(-10℃/14.0°F - 10℃/50.0°F)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: -100
+      maximum: 100
+      default: 0
+  - name: "humidityOffset"
+    title: "Humidity offset"
+    description: "Offset value for humidity (-20% - 20%)"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: -20
+      maximum: 20
+      default:
+  - name: "associationSetting"
+    title: "Association group setting"
+    description: "Association Group 2 Setting."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0 : "Disable completely"
+        1 : "Send(0xFF-away),send(0x00-near)"
+        2 : "Send(0x00-away),send(0xFF-near)"
+        3 : "Only send(0xFF-away)"
+        4 : "Only send(0x00-near)"
+        5 : "Only Send(0x00-away)"
+        6 : "Only send(0xFF-near)"
+      default: 1

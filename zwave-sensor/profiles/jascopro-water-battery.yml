@@ -1,0 +1,118 @@
+name: jascopro-water-battery
+components:
+  - id: main
+    capabilities:
+      - id: waterSensor
+        version: 1
+      - id: battery
+        version: 1
+      - id: refresh
+        version: 1
+    categories:
+      - name: LeakSensor
+preferences:
+  - name: "ledMode"
+    title: "LED Light Mode"
+    description: "Set the LED Light Mode"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "LED always OFF"
+        1: "LED turns on when wet"
+        2: "LED turns on when dry"
+      default: 1
+  - name: "ledBrightness"
+    title: "LED brightness"
+    description: "Set the LED brightness"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Low"
+        1: "Medium"
+        2: "Bright"
+      default: 0
+  - name: "resetFactoryDefault"
+    title: "Reset Factory Default"
+    description: "Reset Switch to Factory Defaults"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "No specific behavior"
+        1: "Reset to factory defaults"
+      default: 0
+  - name: "alarmSound"
+    title: "Alarm Sound"
+    description: "Set Alarm Sound"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Alarm always OFF"
+        1: "Alarm turns on when wet"
+        2: "Alarm turns off when dry"
+      default: 1
+  - name: "lowBatteryReport"
+    title: "Low Battery Report"
+    description: "Set Low Battery Report"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 5
+      maximum: 20
+      default: 10
+  - name: "lowBatteryChirp"
+    title: "Low Battery Chirp"
+    description: "Low Battery Chirp Enabled/Disabled"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Low battery chirp OFF"
+        1: "Low battery chirp ON"
+      default: 1
+  - name: "lowBatteryChirpInterval"
+    title: "Low Battery Chirp Interval"
+    description: "Change Number of Minutes Between Low Battery Chirp Sound"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 10
+      default: 1
+  - name: "statusReporting"
+    title: "Status Reporting"
+    description: "Choose when status reports are sent"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Status reports only when changes"
+        1: "Send status report after 1 hours"
+        2: "Send status report after 2 hours"
+        3: "Send status report after 3 hours"
+        4: "Send status report after 4 hours"
+        5: "Send status report after 5 hours"
+        6: "Send status report after 6 hours"
+        7: "Send status report after 7 hours"
+        8: "Send status report after 8 hours"
+        9: "Send status report after 9 hours"
+        10: "Send status report after 10 hours"
+        11: "Send status report after 11 hours"
+        12: "Send status report after 12 hours"
+        13: "Send status report after 13 hours"
+        14: "Send status report after 14 hours"
+        15: "Send status report after 15 hours"
+        16: "Send status report after 16 hours"
+        17: "Send status report after 17 hours"
+        18: "Send status report after 18 hours"
+        19: "Send status report after 19 hours"
+        20: "Send status report after 20 hours"
+        21: "Send status report after 21 hours"
+        22: "Send status report after 22 hours"
+        23: "Send status report after 23 hours"
+        24: "Send status report after 24 hours"
+        25: "Send status report on wake up"
+      default: 0
